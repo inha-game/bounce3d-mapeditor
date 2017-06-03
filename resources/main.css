@@ -1,0 +1,47 @@
+#newButton ImageView {
+-fx-image: url(img/new.png);
+}
+
+#openButton ImageView {
+-fx-image: url(img/open.png);
+}
+
+#saveButton ImageView {
+    -fx-image: url(img/save.png);
+}
+
+#selectButton ImageView {
+    -fx-image: url(img/select.png);
+}
+
+#noneButton ImageView {
+    -fx-image: url(img/eraser.png);
+}
+
+#sideUpButton ImageView {
+    -fx-image: url(img/side_up_attack.png);
+}
+
+#sideDownButton ImageView {
+    -fx-image: url(img/side_down_attack.png);
+}
+
+#sideShortButton ImageView {
+    -fx-image: url(img/side_short_attack.png);
+}
+#floorNormalButton ImageView {
+    -fx-image: url(img/floor_normal_attack.png);
+}
+#floorSmallButton ImageView {
+    -fx-image: url(img/floor_small_attack.png);
+}
+#fallNormalButton ImageView {
+    -fx-image: url(img/fall_normal_attack.png);
+}
+#fallBigButton ImageView {
+    -fx-image: url(img/fall_big_attack.png);
+}
+.obstacle-cell {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}

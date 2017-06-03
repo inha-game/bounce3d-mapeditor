@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane onKeyPressed="#onKeyPressed"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="939.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" collapsible="false" text="Canvas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <AnchorPane fx:id="gridAnchorPane" minHeight="0.0" minWidth="0.0" >
+                     <children>
+                        <StackPane layoutX="9.600000381469727" layoutY="9.600000381469727" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <GridPane fx:id="obstacleGridPane" gridLinesVisible="true" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed" onMouseReleased="#onMouseReleased" prefHeight="406.0" prefWidth="525.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="10.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                    <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                  <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </StackPane>
+                     </children></AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <ToolBar prefHeight="54.0" prefWidth="938.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button fx:id="newButton" mnemonicParsing="false" onAction="#onClick" prefHeight="40.0" prefWidth="80.0" text="New">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+          <Button fx:id="openButton" mnemonicParsing="false" onAction="#onClick" prefHeight="40.0" prefWidth="80.0" text="Open">
+               <graphic>
+                  <ImageView fx:id="openImage" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Button fx:id="saveButton" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClick" prefHeight="40.0" prefWidth="80.0" text="Save">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="33.0" />
+            <Label text="Copy range (" />
+            <TextField fx:id="copyFrom" prefHeight="23.0" prefWidth="49.0" />
+            <Label text="~" />
+            <TextField fx:id="copyTo" prefHeight="23.0" prefWidth="49.0" />
+            <Label text=") paste to" />
+            <TextField fx:id="copyDest" prefHeight="23.0" prefWidth="49.0" />
+            <Button fx:id="copyButton" mnemonicParsing="false" onAction="#onClick" prefHeight="40.0" prefWidth="112.0" text="Copy &amp; Paste" />
+        </items>
+      </ToolBar>
+   </top>
+   <left>
+      <AnchorPane BorderPane.alignment="TOP_CENTER">
+         <children>
+            <TitledPane fx:id="toolBoxPane" animated="false" collapsible="false" prefWidth="155.0" text="Tool Box" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <StackPane>
+                     <children>
+                        <GridPane fx:id="obstacleToolGridPane" maxHeight="-Infinity" prefHeight="438.0" prefWidth="134.0" StackPane.alignment="TOP_CENTER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ToggleButton fx:id="noneButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="objectTool" />
+                                 </toggleGroup>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sideShortButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sideUpButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="sideDownButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="floorSmallButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="floorNormalButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="fallNormalButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                              <ToggleButton fx:id="fallBigButton" mnemonicParsing="false" onAction="#onClick" prefHeight="48.0" prefWidth="48.0" styleClass="obstacle-button" toggleGroup="$objectTool" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </ToggleButton>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </left>
+   <bottom>
+      <VBox prefHeight="83.0" prefWidth="1060.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <ImageView fx:id="coverImage" fitHeight="65.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox alignment="CENTER_LEFT" prefHeight="83.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="musicPathLabel" prefHeight="15.0" text="Please input music path, and click apply button." />
+                        <Slider fx:id="timelineSlider" blockIncrement="1.0" majorTickUnit="4.0" onKeyPressed="#onKeyPressed" prefHeight="14.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Label fx:id="timeLabel" text="0:00 / 0:00" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#onClick" prefHeight="34.0" prefWidth="55.0" text="Play" />
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#onClick" prefHeight="34.0" prefWidth="57.0" text="Stop" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+   <right>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" collapsible="false" prefWidth="231.0" text="Map Property" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <VBox spacing="5.0">
+                     <children>
+                         <Label text="Title" />
+                         <TextField fx:id="titleField" />
+                         <Label text="Music Intro Path" />
+                         <TextField fx:id="musicIntroPathField" />
+                        <Label text="Music Path" />
+                        <TextField fx:id="musicPathField" />
+                        <Label text="BPM" />
+                        <TextField fx:id="bpmField" />
+                        <Label text="Skin" />
+                        <TextField fx:id="skinField" />
+                        <Label text="Main Cover" />
+                        <TextField fx:id="mainCoverField" />
+                        <Label text="Select Cover" />
+                        <TextField fx:id="selectCoverField" />
+                        <Button fx:id="applyButton" mnemonicParsing="false" onAction="#onClick" prefHeight="34.0" prefWidth="58.0" text="Apply" />
+                     </children>
+                  </VBox>
+               </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
